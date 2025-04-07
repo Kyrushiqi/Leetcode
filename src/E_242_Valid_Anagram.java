@@ -33,13 +33,33 @@ class E_242_Valid_Anagram {
         }
 
         for(int j = 0; j < sMap.size(); j++){
-            if(!(sMap.containsKey(s.charAt(j)) && tMap.containsKey(s.charAt(j)))){
-                return false;
-            } else {
-                if(sMap.get(s.charAt(j)).equals(tMap.get(s.charAt(j)))){
-                    result = true;
+            for(Character e: sMap.keySet()){
+                if(!tMap.containsKey(e)){
+                    result = false;
+                    return false;
+                } else {
+                    if(sMap.get(e).equals(tMap.get(e))){
+                        result = true;
+                    }
                 }
             }
+
+            /* s = KLqr..., t = qKrL...
+            sMap        tMap
+            K | 2       q | 3
+            L | 4       K | 10
+            q | 3       r | 24
+            r | 32      L | 4
+            */
+
+//            if(!(sMap.containsKey(s.charAt(j)) && tMap.containsKey(s.charAt(j)))){
+//                result = false;
+//                return false;
+//            } else {
+//                if(sMap.get(s.charAt(j)).equals(tMap.get(s.charAt(j)))){
+//                    result = true;
+//                }
+//            }
         }
 
         return result;
