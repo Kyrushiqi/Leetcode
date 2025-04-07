@@ -36,18 +36,17 @@ class E_242_Valid_Anagram {
         }
 
         // Compare the two HashMaps by Key and Value
-        for(int j = 0; j < sMap.size(); j++){
-            for(Character e: sMap.keySet()){
-                if(!tMap.containsKey(e)){ // Does tMap contain the same Keys as sMap?
-                    return false;
+        for(Character e: sMap.keySet()){
+            if(!tMap.containsKey(e)){ // Does tMap contain the same Keys as sMap?
+                return false;
+            } else {
+                if(sMap.get(e).equals(tMap.get(e))){ // Does sMap's values equal tMap's values?
+                    result = true;
                 } else {
-                    if(sMap.get(e).equals(tMap.get(e))){ // Does sMap's values equal tMap's values?
-                        result = true;
-                    } else {
-                        return false;
-                    }
+                    return false;
                 }
             }
+        }
 
             /* s = KLqr..., t = qKrL...
             sMap        tMap
@@ -56,7 +55,7 @@ class E_242_Valid_Anagram {
             q | 3       r | 24
             r | 32      L | 4
             */
-        }
+
 
         return result;
     }
