@@ -1,8 +1,10 @@
 /*
 Question: https://leetcode.com/problems/valid-anagram/
-First Logic: Use a hashmap to store key value pairs (String & int) and use it to map out string s.
-Then make t into a hashmap and compare the two hashmaps.
+Submission: https://leetcode.com/problems/valid-anagram/submissions/1599264711/
 
+First Logic:
+Create 2 hashmaps to store key value pairs (Character & int) of String s and String t.
+Compare the two hashmaps by keys and values.
 */
 import java.util.HashMap;
 
@@ -16,6 +18,7 @@ class E_242_Valid_Anagram {
             return false;
         }
 
+        // Put String s into a Hashmap
         for(int i = 0; i < s.length(); i++){
             if(sMap.containsKey(s.charAt(i))){
                 sMap.replace(s.charAt(i), sMap.get(s.charAt(i))+1);
@@ -23,7 +26,7 @@ class E_242_Valid_Anagram {
                 sMap.put(s.charAt(i), 1);
             }
         }
-
+        // Put String t into a Hashmap
         for(int i = 0; i < t.length(); i++){
             if(tMap.containsKey(t.charAt(i))){
                 tMap.replace(t.charAt(i), tMap.get(t.charAt(i))+1);
@@ -32,14 +35,16 @@ class E_242_Valid_Anagram {
             }
         }
 
+        // Compare the two HashMaps by Key and Value
         for(int j = 0; j < sMap.size(); j++){
             for(Character e: sMap.keySet()){
-                if(!tMap.containsKey(e)){
-                    result = false;
+                if(!tMap.containsKey(e)){ // Does tMap contain the same Keys as sMap?
                     return false;
                 } else {
-                    if(sMap.get(e).equals(tMap.get(e))){
+                    if(sMap.get(e).equals(tMap.get(e))){ // Does sMap's values equal tMap's values?
                         result = true;
+                    } else {
+                        return false;
                     }
                 }
             }
@@ -51,15 +56,6 @@ class E_242_Valid_Anagram {
             q | 3       r | 24
             r | 32      L | 4
             */
-
-//            if(!(sMap.containsKey(s.charAt(j)) && tMap.containsKey(s.charAt(j)))){
-//                result = false;
-//                return false;
-//            } else {
-//                if(sMap.get(s.charAt(j)).equals(tMap.get(s.charAt(j)))){
-//                    result = true;
-//                }
-//            }
         }
 
         return result;
