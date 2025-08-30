@@ -5,6 +5,8 @@
 # Completed in 1hr 7mins due to being unfamiliar with Python Syntax :'D
 # Better Solution: Sort the Strings and compare them.
 
+# Problem I ran into: I used `is Not` instead of `Not in` when inputting the characters into the 2 dictionaries.
+
 # Understand: 
 # Determine if Strings are a valid anagram. 
 # Return type: Boolean, true if the characters match one another. 
@@ -37,11 +39,11 @@ class Solution: # O(n)
                 tDict[char] += 1
 
         for ch in sDict: # Compare the 2 dictionaries,
-            # Doesn't work here for some reason...
+            # Doesn't work here in leetcode for some reason...
             # if sDict.get(char) != tDict.get(char):
             #     return False
             
-            # My solution also works:
+            # My solution works:
             if not (ch in tDict and sDict[ch] == tDict[ch]):
                 return False
             
