@@ -1,6 +1,5 @@
 # Question: https://leetcode.com/problems/contains-duplicate-ii/
 # Submission: https://leetcode.com/problems/contains-duplicate-ii/submissions/1889245809/
-# Neetcode Submission: 
 '''
 Understand: 
 Given integer array - nums and integer - k
