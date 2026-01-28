@@ -1,0 +1,50 @@
+# Question: https://leetcode.com/problems/valid-parentheses/
+# Submission: https://leetcode.com/problems/valid-parentheses/submissions/1900324516/
+# Neetcode Submission: https://neetcode.io/problems/validate-parentheses/history
+
+# Understand: 
+# Given -- String s
+# Return -- Boolean. True if s is a valid string, false otherwise
+
+# Plan: 
+# 1) Create a stack using a list
+# 2) Iterate through s characters with for loop. 
+#   2a) if char is an opening character, append to stack
+#   2b) if char is a closing character and matches the top opening character, pop off stack
+#   2c) else: return false
+# 3) At the end of the loop, if stack is empty, return True
+class Solution:
+    def isValid(self, s: str) -> bool:
+        stack = []
+        for char in s: 
+            #print(f"Char: {char}")
+            if char == "(" or char == "{" or char == "[":
+                stack.append(char)
+                #print(f"Stack append: {stack}")
+            elif len(stack) != 0 and ((char == ")" and stack[-1] == "(") or (char == "}" and stack[-1] == "{") or (char == "]" and stack[-1] == "[")):
+                stack.pop()
+                #print(f"Stack pop: {stack}")
+            else: 
+                #print("Returned False")
+                return False
+
+        #print(f"Stack: {stack}")
+        if len(stack) == 0: 
+            return True
+        else: 
+            return False
+        
+# Note: Be Careful with the order of the conditions in the elif statement! len(stack) != 0 must come first to avoid index error.
+
+# Reformatting Suggestion from Copilot:
+# class Solution:
+#     def isValid(self, s: str) -> bool:
+#         stack = []
+#         for char in s:
+#             if char in "({[":
+#                 stack.append(char)
+#             elif stack and ((char == ")" and stack[-1] == "(") or (char == "}" and stack[-1] == "{") or (char == "]" and stack[-1] == "[")):
+#                 stack.pop()
+#             else:
+#                 return False 
+#         return len(stack) == 0
