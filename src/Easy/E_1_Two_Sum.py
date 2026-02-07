@@ -1,3 +1,7 @@
+# Question: https://leetcode.com/problems/two-sum/
+# Submission: https://leetcode.com/problems/two-sum/submissions/1911721472/
+# Neetcode Submission: https://neetcode.io/problems/two-integer-sum/history
+
 '''
 Understand: 
 Given: array of ints (nums), integer (target)
