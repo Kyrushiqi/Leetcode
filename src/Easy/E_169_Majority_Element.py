@@ -1,3 +1,6 @@
+# Leetcode: https://leetcode.com/problems/majority-element/submissions/2125752384/
+# Neetcode: https://neetcode.io/problems/majority-element/history
+
 '''
 Understand: 
 Given: array of ints (nums), size = n
